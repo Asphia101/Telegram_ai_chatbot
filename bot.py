@@ -37,6 +37,7 @@ if __name__ == "__main__":
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("dashboard", dashboard))
     app.add_handler(MessageHandler(filters.CONTACT, handle_start))
+    app.add_handler(CommandHandler("search", chat_with_gemini))  # for search query
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, chat_with_gemini))
     app.add_handler(MessageHandler(filters.PHOTO, handle_image))  # For images
     app.add_handler(MessageHandler(filters.Document.ALL, handle_image))  # For documents

@@ -10,7 +10,7 @@ load_dotenv()
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel("gemini-pro")
+model = genai.GenerativeModel("gemini-1.5-flash") #channging the api key to the free one
 model_vision = genai.GenerativeModel('gemini-1.5-flash') # Changed the model name
 
 
@@ -21,7 +21,7 @@ async def generate_gemini_response(prompt):
             return response.text
         except Exception as e:
            logger.error(f"Error with Gemini API: {e}")
-           return "I'm having trouble processing your request at the moment. Please try again later."
+           return "Error with gemini api: I'm having trouble processing your request at the moment. Please try again later."
 
 
 async def generate_gemini_response_with_image(prompt, image_data):
