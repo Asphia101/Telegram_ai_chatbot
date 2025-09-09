@@ -1,8 +1,18 @@
 services:
   - type: web
-    name: telegram-ai-bot
-    env: python
+    name: telegram-ai-chatbot
+    runtime: python-3.11
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: python bot.py
-    runtime: python-3.11
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: MONGODB_HOST
+        sync: false
+      - key: GOOGLE_SEARCH_API_KEY
+        sync: false
+      - key: GOOGLE_SEARCH_ENGINE_ID
+        sync: false
